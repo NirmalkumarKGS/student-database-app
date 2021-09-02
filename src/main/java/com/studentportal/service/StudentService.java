@@ -1,7 +1,5 @@
 package com.studentportal.service;
 
-import org.springframework.stereotype.Service;
-
 import com.studentportal.model.Student;
 
 public interface StudentService {
