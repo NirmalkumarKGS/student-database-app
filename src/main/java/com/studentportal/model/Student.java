@@ -26,13 +26,11 @@ public class Student {
 	private String EmailId;
 	private String Address;
 	@Temporal(value = TemporalType.TIMESTAMP)
-	@Column(name = "created_date")
 	@org.springframework.data.annotation.CreatedDate
 	private Date CreatedDate;
 	@Temporal(value = TemporalType.TIMESTAMP)
-	@Column(name = "updated_date")
 	@org.springframework.data.annotation.LastModifiedDate
-	private Date UpdateDate;
+	private Date UpdatedDate;
 
 	public Student() {
 
@@ -90,16 +88,16 @@ public class Student {
 	@PrePersist
 	public void setCreatedDate() {
 		CreatedDate = new Date();
-		UpdateDate = new Date();
+		UpdatedDate = new Date();
 	}
 
-	public Date getUpdateDate() {
-		return UpdateDate;
+	public Date getUpdatedDate() {
+		return UpdatedDate;
 	}
 
 	@PreUpdate
-	public void setUpdateDate() {
-		UpdateDate = new Date();
+	public void setUpdatedDate() {
+		UpdatedDate = new Date();
 	}
 
 }
