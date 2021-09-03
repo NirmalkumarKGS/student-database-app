@@ -19,17 +19,26 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
-	// To-Do: need to generate Register number based on course and unique number
+	// TODO: need to generate Register number based on course and unique number
 	// private String RegisterNum;
+	@Column(name = "firstname")
 	private String FirstName;
+
+	@Column(name = "lastname")
 	private String LastName;
+
+	@Column(name = "emailid")
 	private String EmailId;
+
+	@Column(name = "address")
 	private String Address;
+
 	@Temporal(value = TemporalType.TIMESTAMP)
-	@org.springframework.data.annotation.CreatedDate
+	@Column(name = "createddate")
 	private Date CreatedDate;
+
 	@Temporal(value = TemporalType.TIMESTAMP)
-	@org.springframework.data.annotation.LastModifiedDate
+	@Column(name = "updateddate")
 	private Date UpdatedDate;
 
 	public Student() {
@@ -47,6 +56,10 @@ public class Student {
 
 	public int getId() {
 		return Id;
+	}
+	
+	public void setId(int id) {
+		Id = id;
 	}
 
 	public String getFirstName() {
@@ -84,19 +97,27 @@ public class Student {
 	public Date getCreatedDate() {
 		return CreatedDate;
 	}
-
-	@PrePersist
-	public void setCreatedDate() {
-		CreatedDate = new Date();
-		UpdatedDate = new Date();
+	
+	public void setCreatedDate(Date createdDate) {
+		CreatedDate = createdDate;
 	}
 
 	public Date getUpdatedDate() {
 		return UpdatedDate;
 	}
 
+	public void setUpdatedDate(Date updatedDate) {
+		UpdatedDate = updatedDate;
+	}
+	
+	@PrePersist
+	public void setDateBeforeInsert() {
+		CreatedDate = new Date();
+		UpdatedDate = new Date();
+	}
+
 	@PreUpdate
-	public void setUpdatedDate() {
+	public void setDateBeforeUpdate() {
 		UpdatedDate = new Date();
 	}
 
