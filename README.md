@@ -45,4 +45,4 @@ commit;
 
 
 ## List of Request for Student Controller
-[Student Controller](../StudentCotrollerRequest.md)
+[Student Controller](StudentCotrollerRequest.md)
